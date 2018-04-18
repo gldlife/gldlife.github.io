@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="zh-CN">
+<!--
+//                            _ooOoo_
+//                           o8888888o
+//                           88" . "88
+//                           (| -_- |)
+//                            O\ = /O
+//                        ____/`---'\____
+//                      .   ' \\| |// `.
+//                       / \\||| : |||// \
+//                     / _||||| -:- |||||- \
+//                       | | \\\ - /// | |
+//                     | \_| ''\---/'' | |
+//                      \ .-\__ `-` ___/-. /
+//                   ___`. .' /--.--\ `. . __
+//                ."" '< `.___\_<|>_/___.' >'"".
+//               | | : `- \`.;`\ _ /`;.`/ - ` : | |
+//                 \ \ `-. \_ __\ /__ _/ .-` / /
+//         ======`-.____`-.___\_____/___.-`____.-'======
+//                            `=---='
+//                 拦截插件累计拦截逗比攻击"1381438"次！
+//         .............................................
+//                  佛祖保佑             永无BUG
+//          佛曰:
+//                  写字楼里写字间，写字间里程序员；
+//                  程序人员写程序，又拿程序换酒钱。
+//                  酒醒只在网上坐，酒醉还来网下眠；
+//                  酒醉酒醒日复日，网上网下年复年。
+//                  但愿老死电脑间，不愿鞠躬老板前；
+//                  奔驰宝马贵者趣，公交自行程序员。
+//                  别人笑我忒疯癫，我笑自己命太贱；
+//                  不见满街漂亮妹，哪个归得程序员？
+-->
+<head>
+    <!--[if lte IE 9]>
+<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
+<![endif]-->
+<meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
+<meta name="author" content="gldlife">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/SimpleStyle.min.css">
+
+<link rel="shortcut icon" href="/images/favicon.png">
+
+
+<title>如何用 python 记录日志 - The Study Life</title>
+
+<meta name="keywords" content="">
+
+<meta name="description " content="">
+</head>
+<body>
+<div id="nav">
+    <nav class="nav-menu">
+        <a class="site-name current" href="/" title="Study">Study</a>
+        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
+        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
+        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
+        <!-- custom single page of menus -->
+        
+        
+        <a href="/help" title="帮助">
+            <i class="fa fa-question-circle"></i>
+            <span>帮助</span>
+        </a>
+        
+    </nav>
+</div>
+
+<div class="nav-user">
+    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
+    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
+    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
+</div>
+
+<div id="wrapper" class="clearfix">
+    <div id="body">
+        <div class="main" id="main">
+            <div id="cover">
+    <div class="cover-img"></div>
+    <div class="cover-info">
+        
+        <img class="avatar" width="72" src="/images/favicon.png" alt="avatar"/>
+        
+        <h1 class="cover-siteName">说Study</h1>
+        <h3 class="cover-siteTitle">研究学习，分享方法</h3>
+        <p class="cover-siteDesc">一个关注技术与学习的分享博客</p>
+        <div class="cover-sns">
+            
+        </div>
+    </div>
+</div>
+            <div class="page-title">
+    <ul>
+        <li><a href="/">最新</a></li>
+        
+            
+                <li class="">
+                    <a href="/categories/Study" data-name="学习">学习</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/BIM" data-name="BIM应用">BIM应用</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/NLP" data-name="NLP">NLP</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/Time" data-name="时间管理">时间管理</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/Job" data-name="职场">职场</a>
+                </li>
+            
+        
+        <li class="page-search">
+    <form id="search" class="search-form">
+        <label for="s" class="sr-only">Input Search key Words Here</label>
+        <input class="search-field" type="text" name="s" class="text" placeholder="Input Search key Words Here" />
+        <button type="submit" class="search-form-submit" title="Search"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+</li>
+
+    </ul>
+</div>
+<div class="main-inner">
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank">李建飞</a>
+                    <span title="最后编辑于2018-04-18">2018-04-18</span>
+                </p>
+                <p>一个爱好学习的独行客</p>
+            </div>
+            <h2 class="post-title">如何用 Python 记录日志</h2>
+            <div class="post-meta">
+                本文总共9659个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <img src="/2018/04/18/如何用-Python-记录日志/bg.jpg">
+<p>对一名开发者来说最糟糕的情况，莫过于要弄清楚一个不熟悉的应用为何不工作。有时候，你甚至不知道系统运行，是否跟原始设计一致。</p>
+<p>在线运行的应用就是黑盒子，需要被跟踪监控。最简单也最重要的方式就是记录日志。记录日志允许我们在开发软件的同时，让程序在系统运行时发出信息，这些信息对于我们和系统管理员来说都是有用的。</p>
+<p>就像为将来的程序员写代码文档一样，我们应该让新软件产生足够的日志供系统的开发者和管理员使用。日志是关于应用运行状态的系统文件的关键部分。给软件加日志产生句时，要向给未来维护系统的开发者和管理员写文档一样。</p>
+<p>一些纯粹主义者认为一个受过训练的开发者使用日志和测试的时候几乎不需要交互调试器。如果我们不能用详细的日志解释开发过程中的应用，那么当代码在线上运行的时候，解释它们会变得更困难。</p>
+<p>这篇文章介绍了 Python 的 logging 模块，包括它的设计以及针对更多复杂案例的适用方法。这篇文章不是写给开发者的文档，它更像是一个指导手册，来说明 Python 的 logging 模板是如何搭建的，并且激发感兴趣的人深入研究。</p>
+<h1 id="为什么使用-logging-模块？"><a href="#为什么使用-logging-模块？" class="headerlink" title="为什么使用 logging 模块？"></a>为什么使用 logging 模块？</h1><p>也许会有开发者会问，为什么不是简单的 print 语句呢？ Logging 模块有很多优势，包括：</p>
+<ol>
+<li>多线程支持</li>
+<li>通过不同级别的日志分类</li>
+<li>灵活性和可配置性</li>
+<li>将如何记录日志与记录什么内容分离<br>最后一点，将我们记录内容从记录方式中真正分离，保证了软件不同部分的合作。举个例子，它允许一个框架或库的开发者增加日志并且让系统管理员或负责运行配置的人员决定稍后应该记录什么。</li>
+</ol>
+<h1 id="Logging-模块中有什么"><a href="#Logging-模块中有什么" class="headerlink" title="Logging 模块中有什么"></a>Logging 模块中有什么</h1><p>Logging 模块完美地将它的每个部分的职责分离（遵循 Apache Log4j API 的方法）。让我们看看一个日志线是如何通过这个模块的代码，并且研究下它的不同部分。</p>
+<h3 id="记录器（Logger）"><a href="#记录器（Logger）" class="headerlink" title="记录器（Logger）"></a>记录器（Logger）</h3><p>记录器是开发者经常交互的对象。那些主要的 API 说明了我们想要记录的内容。</p>
+<p>举个记录器的例子，我们可以分类请求发出一条信息，而不用担心它们是如何从哪里被发出的。</p>
+<p>比如，当我们写下 logger.info(“Stock was sold at %s”, price) 我们在头脑中就有如下模块：<br><img src="/2018/04/18/如何用-Python-记录日志/logger.jpg"></p>
+<p>我们需要一条线。假设有些代码在记录器中运行，让这条线出现在控制台或文件中。但是在内部实际发生了什么呢？</p>
+<h3 id="日志记录"><a href="#日志记录" class="headerlink" title="日志记录"></a>日志记录</h3><p>日志记录是 logging 模块用来满足所有需求信息的包。它们包含了需要记录日志的地方、变化的字符串、参数、请求的信息队列等信息。</p>
+<p>它们都是被记录的对象。每次我们调用记录器时，都会生成这些对象。但这些对象是如何序列化到流中的呢？通过处理器！</p>
+<h3 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h3><p>处理器将日志记录发送给其他输出终端，他们获取日志记录并用相关函数中处理它们。</p>
+<p>比如，一个文件处理器将会获取一条日志记录，并且把它添加到文件中。</p>
+<p>标准的 logging 模块已经具备了多种内置的处理器，例如：</p>
+<p>多种文件处理器（TimeRotated, SizeRotated, Watched），可以写入文件中</p>
+<ul>
+<li>StreamHandler 输出目标流比如 stdout 或 stderr</li>
+<li>SMTPHandler 通过 email 发送日志记录</li>
+<li>SocketHandler 将日志文件发送到流套接字</li>
+<li>SyslogHandler、NTEventHandler、HTTPHandler及MemoryHandler等<br>目前我们有个类似于真实情况的模型：<img src="/2018/04/18/如何用-Python-记录日志/chuliqi.jpg">
+</li>
+</ul>
+<p>大部分的处理器都在处理字符串(SMTPHandler和FileHandler等)。或许你想知道这些结构化的日志记录是如何转变为易于序列化的字节的。</p>
+<h3 id="格式器"><a href="#格式器" class="headerlink" title="格式器"></a>格式器</h3><p>格式器负责将丰富的元数据日志记录转换为字符串，如果什么都没有提供，将会有个默认的格式器。</p>
+<p>一般的格式器类由 logging 库提供，采用模板和风格作为输入。然后占位符可以在一个 LogRecord 对象中声明所有属性。</p>
+<p>比如：’%(asctime)s %(levelname)s %(name)s: %(message)s’ 将会生成日志类似于 2017-07-19 15:31:13,942 INFO parent.child: Hello EuroPython.</p>
+<p>请注意：属性信息是通过提供的参数对日志的原始模板进行插值的结果。（比如，对于 logger.info(“Hello %s”, “Laszlo”) 这条信息将会是 “Hello Laszlo”）</p>
+<p>所有默认的属性都可以在日志文档中找到。</p>
+<p>好了，现在我们了解了格式器，我们的模型又发生了变化：<br><img src="/2018/04/18/如何用-Python-记录日志/format.jpg"></p>
+<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p>我们日志工具的最后一个对象就是过滤器。</p>
+<p>过滤器允许对应该发送的日志记录进行细粒度控制。多种过滤器能同时应用在记录器和处理器中。对于一条发送的日志来说，所有的过滤器都应该通过这条记录。</p>
+<p>用户可以声明他们自己的过滤器作为对象，使用 filter 方法获取日志记录作为输入，反馈 True / False 作为输出。</p>
+<p>出于这种考虑，以下是当前的日志工作流：<br><img src="/2018/04/18/如何用-Python-记录日志/filter.jpg"></p>
+<h3 id="记录器层级"><a href="#记录器层级" class="headerlink" title="记录器层级"></a>记录器层级</h3><p>此时，你可能会对大量复杂的内容和巧妙隐藏的模块配置印象深刻，但是还有更需要考虑的：记录器分层。</p>
+<p>我们可以通过 logging.getLogger() 创建一个记录器。这条字符向 getLogger 传递了一个参数，这个参数可以通过使用圆点分隔元素来定义一个层级。</p>
+<p>举个例子，logging.getLogger(“parent.child”) 将会创建一个 “child” 的记录器，它的父级记录器叫做 “parent.” 记录器是被 logging 模块管理的全局对象，所以我们可以方便地在项目中的任何地方检索他们。</p>
+<p>记录器的例子通常也被认为是渠道。层级允许开发者去定义渠道和他们的层级。</p>
+<p>在日志记录被传递到所有记录器内的处理器时，父级处理器将会进行递归处理，直到我们到达顶级的记录器（被定义为一个空字符串），或者有一个记录器设置了 propagate = False。我们可通过更新的图中看出：<br><img src="/2018/04/18/如何用-Python-记录日志/cengji.jpg"><br>请注意父级记录器没有被调用，只有它的处理器被调用。这意味着过滤器和其他在记录器类中的代码不会在父级中被执行。当我们在记录器中增加过滤器时，这通常是个陷阱。</p>
+<p>工作流小结<br>我们已经阐明过职责的划分以及我们是如何微调日志过滤。然而还是有两个其他的属性我们没有提及：</p>
+<ol>
+<li>记录器可以是残缺的，从而不允许任何记录从这被发出。</li>
+<li>一个有效的层级可以同时在记录器和处理器中被设置。<br>举个例子，当一个记录器被设置为 INFO 的等级，只有 INFO 等级及以上的才会被传递，同样的规则适用于处理器。</li>
+</ol>
+<p>基于以上所有的考虑，最后的日志记录的流程图看起来像这样：<br><img src="/2018/04/18/如何用-Python-记录日志/level.jpg"></p>
+<p>###如何使用日志记录模块<br>现在我们已经了解了 logging 模块的部分及设计，是时候去了解一个开发者是如何与它交互的了。以下是一个代码例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line"> </span><br><span class="line">def sample_function(secret_parameter):</span><br><span class="line">    logger = logging.getLogger(__name__)  # __name__=projectA.moduleB</span><br><span class="line">    logger.debug(&quot;Going to perform magic with &apos;%s&apos;&quot;,  secret_parameter)</span><br><span class="line">    ...</span><br><span class="line">    try:</span><br><span class="line">        result = do_magic(secret_parameter)</span><br><span class="line">    except IndexError:</span><br><span class="line">        logger.exception(&quot;OMG it happened again, someone please tell Laszlo&quot;)</span><br><span class="line">    except:</span><br><span class="line">        logger.info(&quot;Unexpected exception&quot;, exc_info=True)</span><br><span class="line">        raise</span><br><span class="line">    else:</span><br><span class="line">        logger.info(&quot;Magic with &apos;%s&apos; resulted in &apos;%s&apos;&quot;, secret_parameter, result, stack_info=True)</span><br></pre></td></tr></table></figure></p>
+<p>它用模块 <strong>name</strong> 创建了一个日志记录器。它会基于项目结构创建渠道和等级，正如 Pyhon 模块用圆点连接一样。</p>
+<p>记录器变量引用记录器的 “module” ，用 “projectA” 作为父级， “root” 作为父级的父级。</p>
+<p>在第五行，我们看到如何执行调用去发送日志。我们可以用 debug 、 info 、error 或 critical 这些方法之一在合适的等级上去记录日志。</p>
+<p>当记录一条信息时，除了模板参数，我们可以通过特殊的含义传递密码参数，最有意思的是 exc_info 和 stack_info。它们将会分别增加关于当前异常和栈帧的信息。为了方便起见，在记录器对象中有一个方法异常，正如这个错误调用 exc_info=True 。</p>
+<p>这些是如何使用记录器模块的基础，但是有些通常被认为是不良操作的做法同样值得说明。</p>
+<p><strong>过度格式化字符串</strong></p>
+<p>应该尽量避免使用 loggger.info(“string template {}”.format(argument)) ，可能的话尽量使用 logger.info(“string template %s”, argument)。 这是个更好的实践，因为只有当日志被发送时，字符串才会发生真正改变。当我们记录的层级在 INFO 之上时，不这么做会导致浪费周期，因为这个改变仍然会发生。</p>
+<p><strong>捕捉和格式化异常</strong></p>
+<p>通常，我们想记录在抓取模块异常的日志信息，如果这样写会很直观：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    ...</span><br><span class="line">except Exception as error:</span><br><span class="line">    logger.info(&quot;Something bad happened: %s&quot;, error)</span><br></pre></td></tr></table></figure></p>
+<p>但是这样的代码会给我们显示类似于 Something bad happened: “secret_key.” 的日志行，这并不是很有用。如果我们使用 exc_info 作为事先说明，那么它将会如下显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    ...</span><br><span class="line">except Exception:</span><br><span class="line">    logger.info(&quot;Something bad happened&quot;, exc_info=True)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Something bad happened</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;sample_project.py&quot;, line 10, in code</span><br><span class="line">    inner_code()</span><br><span class="line">  File &quot;sample_project.py&quot;, line 6, in inner_code</span><br><span class="line">    x = data[&quot;secret_key&quot;]</span><br><span class="line">KeyError: &apos;secret_key&apos;</span><br></pre></td></tr></table></figure>
+<p>这不仅仅会包含异常的准确资源，同时也会包含它的类型。</p>
+<h1 id="设置记录器"><a href="#设置记录器" class="headerlink" title="设置记录器"></a>设置记录器</h1><p>装备我们的软件很简单，我们需要设置日志栈，并且制定这些记录是如何被发出的。</p>
+<p>以下是设置日志栈的多种方法</p>
+<h3 id="基础设置"><a href="#基础设置" class="headerlink" title="基础设置"></a>基础设置</h3><p>这是至今最简单的设置日志记录的方法。使用 logging.basicConfig(level=”INFO”) 搭建一个基础的 StreamHandler ，这样就会记录在 INFO 上的任何东西，并且到控制台以上的级别。以下是编写基础设置的一些参数：<br>参数 | 说明 | 举例<br>—|—|—<br>filename | 指定创建的文件处理器，使用特定的文件名，而不是流处理器 |    /var/logs/logs.txt<br>format    | 为处理器使用特定格式的字符串 |    “‘%(asctime)s %(message)s’”<br>datefmt    | 使用特定的日期/时间格式 |    “%H:%M:%S”<br>level    | 为根记录器等级设置特定等级    | “INFO”</p>
+<p>在设置简单的脚本上，这是简单又使用的方法。</p>
+<p>请注意， basicConfig 仅仅在运行的一开始可以这么调用。如果你已经设置了你的根记录器，调用 basicConfig 将不会奏效。</p>
+<h3 id="字典设置"><a href="#字典设置" class="headerlink" title="字典设置"></a>字典设置</h3><p>所有元素的设置以及如何连接它们可以作为字典来说明。这个字典应当由不同的部分组成，包括记录器、处理器、格式化以及一些基本的通用参数。</p>
+<p>例子如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">config = &#123;</span><br><span class="line">    &apos;disable_existing_loggers&apos;: False,</span><br><span class="line">    &apos;version&apos;: 1,</span><br><span class="line">    &apos;formatters&apos;: &#123;</span><br><span class="line">        &apos;short&apos;: &#123;</span><br><span class="line">            &apos;format&apos;: &apos;%(asctime)s %(levelname)s %(name)s: %(message)s&apos;</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &apos;handlers&apos;: &#123;</span><br><span class="line">        &apos;console&apos;: &#123;</span><br><span class="line">            &apos;level&apos;: &apos;INFO&apos;,</span><br><span class="line">            &apos;formatter&apos;: &apos;short&apos;,</span><br><span class="line">            &apos;class&apos;: &apos;logging.StreamHandler&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &apos;loggers&apos;: &#123;</span><br><span class="line">        &apos;&apos;: &#123;</span><br><span class="line">            &apos;handlers&apos;: [&apos;console&apos;],</span><br><span class="line">            &apos;level&apos;: &apos;ERROR&apos;,</span><br><span class="line">        &#125;,</span><br><span class="line">        &apos;plugins&apos;: &#123;</span><br><span class="line">            &apos;handlers&apos;: [&apos;console&apos;],</span><br><span class="line">            &apos;level&apos;: &apos;INFO&apos;,</span><br><span class="line">            &apos;propagate&apos;: False</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br><span class="line">import logging.config</span><br><span class="line">logging.config.dictConfig(config)</span><br></pre></td></tr></table></figure></p>
+<p>当被引用时， dictConfig 将会禁用所有运行的记录器，除非 disable_existing_loggers 被设置为 false。这通常是需要的，因为很多模块声明了一个全球记录器，它在 dictConfig 被调用之前被导入的时候将会实例化。</p>
+<p>你可以查看 schema that can be used for the dictConfig method（链接）。通常，这些设置将会存储在一个 YAML 文件中，并且从那里设置。很多开发者会倾向于使用这种方式而不是使用 fileConfig（链接）,因为它为定制化提供了更好的支持。</p>
+<h1 id="拓展-logging"><a href="#拓展-logging" class="headerlink" title="拓展 logging"></a>拓展 logging</h1><p>幸亏设计了这种方式，拓展 logging 模块很容易。让我们来看些例子：</p>
+<h3 id="logging-JSON-记录-JSON"><a href="#logging-JSON-记录-JSON" class="headerlink" title="logging JSON | 记录 JSON"></a>logging JSON | 记录 JSON</h3><p>只要我们想要记录，我们可以通过创建一种自定义格式化来记录 JSON ，它会将日志记录转化为 JSON 编码的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">import logging.config</span><br><span class="line">import json</span><br><span class="line">ATTR_TO_JSON = [&apos;created&apos;, &apos;filename&apos;, &apos;funcName&apos;, &apos;levelname&apos;, &apos;lineno&apos;, &apos;module&apos;, &apos;msecs&apos;, &apos;msg&apos;, &apos;name&apos;, &apos;pathname&apos;, &apos;process&apos;, &apos;processName&apos;, &apos;relativeCreated&apos;, &apos;thread&apos;, &apos;threadName&apos;]</span><br><span class="line">class JsonFormatter:</span><br><span class="line">    def format(self, record):</span><br><span class="line">        obj = &#123;attr: getattr(record, attr)</span><br><span class="line">                  for attr in ATTR_TO_JSON&#125;</span><br><span class="line">        return json.dumps(obj, indent=4)</span><br><span class="line"> </span><br><span class="line">handler = logging.StreamHandler()</span><br><span class="line">handler.formatter = JsonFormatter()</span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line">logger.addHandler(handler)</span><br><span class="line">logger.error(&quot;Hello&quot;)</span><br></pre></td></tr></table></figure></p>
+<h3 id="添加更多上下文"><a href="#添加更多上下文" class="headerlink" title="添加更多上下文"></a>添加更多上下文</h3><p>在格式化中，我们可以指定任何日志记录的属性。</p>
+<p>我们可以通过多种方式增加属性，在这个例子中，我们用过滤器来丰富日志记录。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">import logging.config</span><br><span class="line">GLOBAL_STUFF = 1</span><br><span class="line"> </span><br><span class="line">class ContextFilter(logging.Filter):</span><br><span class="line">    def filter(self, record):</span><br><span class="line">        global GLOBAL_STUFF</span><br><span class="line">        GLOBAL_STUFF += 1</span><br><span class="line">        record.global_data = GLOBAL_STUFF</span><br><span class="line">        return True</span><br><span class="line"> </span><br><span class="line">handler = logging.StreamHandler()</span><br><span class="line">handler.formatter = logging.Formatter(&quot;%(global_data)s %(message)s&quot;)</span><br><span class="line">handler.addFilter(ContextFilter())</span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line">logger.addHandler(handler)</span><br><span class="line"> </span><br><span class="line">logger.error(&quot;Hi1&quot;)</span><br><span class="line">logger.error(&quot;Hi2&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>这样有效地在所有日志记录中增加了一个属性，它可以通过记录器。格式化会在日志行中包含这个属性。</p>
+<p>请注意这会在你的应用中影响所有的日志记录，包含你可能用到以及你发送日志的库和其他的框架。它可以用来记录类似于在所有日志行里的一个独立请求 ID ，去追踪请求或者去添加额外的上下文信息。</p>
+<p>从 Python 3.2 开始，你可以使用 setLogRecordFactory 去获得所有日志的创建记录和增加额外的信息。这个 extra attribute 和 LoggerAdapter class 或许同样是有趣的。</p>
+<h3 id="缓冲日志"><a href="#缓冲日志" class="headerlink" title="缓冲日志"></a>缓冲日志</h3><p>有时候当错误发生时，我们想要排除日志故障。创建一个缓冲的处理器，来记录当错误发生时的最新故障信息是一种可行的办法。下面的代码是个非人为策划的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">import logging.handlers</span><br><span class="line"> </span><br><span class="line">class SmartBufferHandler(logging.handlers.MemoryHandler):</span><br><span class="line">    def __init__(self, num_buffered, *args, **kwargs):</span><br><span class="line">        kwargs[&quot;capacity&quot;] = num_buffered + 2  # +2 one for current, one for prepop</span><br><span class="line">        super().__init__(*args, **kwargs)</span><br><span class="line"> </span><br><span class="line">    def emit(self, record):</span><br><span class="line">        if len(self.buffer) == self.capacity - 1:</span><br><span class="line">            self.buffer.pop(0)</span><br><span class="line">        super().emit(record)</span><br><span class="line"> </span><br><span class="line">handler = SmartBufferHandler(num_buffered=2, target=logging.StreamHandler(), flushLevel=logging.ERROR)</span><br><span class="line">logger = logging.getLogger(__name__)</span><br><span class="line">logger.setLevel(&quot;DEBUG&quot;)</span><br><span class="line">logger.addHandler(handler)</span><br><span class="line"> </span><br><span class="line">logger.error(&quot;Hello1&quot;)</span><br><span class="line">logger.debug(&quot;Hello2&quot;)  # This line won&apos;t be logged</span><br><span class="line">logger.debug(&quot;Hello3&quot;)</span><br><span class="line">logger.debug(&quot;Hello4&quot;)</span><br><span class="line">logger.error(&quot;Hello5&quot;)  # As error will flush the buffered logs, the two last debugs will be logged</span><br></pre></td></tr></table></figure></p>
+<h3 id="更多信息"><a href="#更多信息" class="headerlink" title="更多信息"></a>更多信息</h3><p>这篇关于日志记录库的灵活性和可配置性的介绍，目的在于证明它如何设计了分别的关注点的美学。它同样为任何对 logging documentation 和 how-to guide 感兴趣的人提供了一个坚实的基础。虽然这篇文章对于 Python 日志模块并不是一个综合性的知道，但是这里有一些针对于常见的问题的回答。</p>
+<p>问：我的库发送了一个“ no logger configured” 的警告</p>
+<p>答：从 The Hitchhiker’s Guide to Python 查阅 how to configure logging in a library</p>
+<p>问：如果一个记录器没有层级设置会怎么样？</p>
+<p>答：记录器的有效层级，会由它的父级递归定义。</p>
+<p>问：我所有的日志都在本地时间，我如何记录在 UTC ？</p>
+<p>答：格式化就是答案！你需要在你的格式化中设置 converter 属性为通用的 UTC 时间。使用 converter = time.gmtime 。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+            <a href="/tags/python/">python</a>
+            
+        </div>
+        
+    </article>
+    
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
+    
+    
+</div>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        </div><!-- end #main-->
+    </div><!-- end #body -->
+    <footer class="footer">
+    <div class="footer-inner">
+        <p>
+            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <!-- 自定义链接 -->
+            <a href="/help" title="help" >急救中心</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/links" title="友情链接">友情链接</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
+            <a href="/app" title="App下载">App下载</a>
+        </p>
+        <p>
+            本站点采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>，已建立<a href="/timeline" id="siteBuildingTime"></a>天<br/>
+            ©2017 基于<a href="http://hexo.io" target="_blank">Hexo</a>搭建
+            ，主题&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank">JSimple</a>
+            ，作者<a href="https://www.tangkunyin.com" target="_blank">唐先森</a>
+            ，Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+        </p>
+        
+
+    </div>
+</footer>
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script src="/js/InsightSearch.js"></script>
+<script src="/js/SimpleCore.js"></script>
+
+</div>
+<div class="fixed-btn">
+    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
+</div>
+<script>
+    $(function () {
+        SimpleCore.init({
+            buildingTime: '04/17/2018',
+            current: $('.post-tags').length > 0 ? 'post' : 'archive',
+            snsQRCode: '/images/sns-qrcode.png',
+            donateImg: '/images/donate-qr.png',
+        });
+    });
+</script>
+</body>
+</html>
