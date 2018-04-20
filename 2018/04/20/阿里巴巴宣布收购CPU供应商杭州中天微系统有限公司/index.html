@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>我用python进行药品价格比对（1） - The Study Life</title>
+<title>阿里巴巴宣布收购cpu供应商杭州中天微系统有限公司 - The Study Life</title>
 
 <meta name="keywords" content="">
 
@@ -164,32 +164,18 @@
                     <img width="48" src="/images/favicon.png" alt="avatar"/>
                 </a>
                 <p><span class="label">作者</span>
-                    <a href="" target="_blank">李建飞</a>
-                    <span title="最后编辑于2018-04-19">2018-04-19</span>
+                    <a href="" target="_blank">36氪</a>
+                    <span title="最后编辑于2018-04-20">2018-04-20</span>
                 </p>
                 <p>一个爱好学习的独行客</p>
             </div>
-            <h2 class="post-title">我用python进行药品价格比对（1）</h2>
+            <h2 class="post-title">阿里巴巴宣布收购CPU供应商杭州中天微系统有限公司</h2>
             <div class="post-meta">
-                本文总共1469个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+                本文总共138个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
             </div>
         </div>
         <div class="post-content markdown-body">
-            <p>第一次只是实现了简单的单页面数据的爬取，后续会分享<strong>如何实现翻页，如何批量爬取药品数据，如何将爬取结果写入excel表中</strong><br>敬请期待。</p>
-<h2 id="程序源码："><a href="#程序源码：" class="headerlink" title="程序源码："></a>程序源码：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义请求参数</span></span><br><span class="line">name_drug=<span class="string">'氟氯西林钠阿莫西林胶囊'</span></span><br><span class="line">data=&#123;</span><br><span class="line">	<span class="string">'act'</span>:<span class="string">'search'</span>,</span><br><span class="line">	<span class="string">'typeid'</span>:<span class="number">1</span>,</span><br><span class="line">	<span class="string">'keyword'</span>:name_drug,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url=<span class="string">'http://www.china-yao.com/'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义爬取单页数据函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_price_query</span><span class="params">(url,data)</span>:</span></span><br><span class="line">	header=(<span class="string">'user-agent'</span>,<span class="string">'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.108 Safari/537.36'</span>)</span><br><span class="line">	r=requests.get(url,params=data)</span><br><span class="line">	r.encoding=<span class="string">'utf-8'</span> <span class="comment">#设置网页编码格式</span></span><br><span class="line">	html=r.text <span class="comment">#获取网页源码</span></span><br><span class="line">	soup=BeautifulSoup(html,<span class="string">'lxml'</span>)</span><br><span class="line">	prices=soup.find(<span class="string">'table'</span>,class_=<span class="string">'table'</span>)</span><br><span class="line">	price_data=prices.find_all(<span class="string">'tr'</span>)</span><br><span class="line">	<span class="keyword">for</span> item <span class="keyword">in</span> price_data:</span><br><span class="line">		all_data=item.find_all(<span class="string">'td'</span>)</span><br><span class="line">		i=<span class="number">1</span></span><br><span class="line">		<span class="keyword">for</span> data <span class="keyword">in</span> all_data:</span><br><span class="line">			print(data.string)</span><br><span class="line">			i=i+<span class="number">1</span></span><br><span class="line">			<span class="keyword">if</span>(i%<span class="number">6</span>==<span class="number">0</span>):</span><br><span class="line">				print()</span><br><span class="line"></span><br><span class="line"><span class="comment">#运行程序</span></span><br><span class="line">get_price_query(url,data)</span><br></pre></td></tr></table></figure>
-<h2 id="爬取结果"><a href="#爬取结果" class="headerlink" title="爬取结果"></a>爬取结果</h2><blockquote><p>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g(0.125g/0.125g)*12<br>5.1<br>37.3                                              </p>
-<p>湖南中南科伦药业有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g(按氟氯西林0.125g，阿莫西林0.125g)*12<br>5.1<br>34.8</p>
-<p>湖南中南科伦药业有限公司<br>氟氯西林钠阿莫西林胶囊<br>无<br>0.25g*12粒<br>8<br>28.3</p>
-<p>湖南中南科伦药业有限<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g*12s<br>6.5<br>54.1</p>
-<p>深圳市海滨制药有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g（1:1）*12<br>4.1<br>35.7</p>
-<p>深圳市海滨制药有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g（1:1）*12<br>4.4<br>35</p>
-<p>深圳市海滨制药有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g(按氟氯西林0.125g，阿莫西林0.125g)*12<br>4.7<br>38</p>
-<p>深圳市海滨制药有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>(0.25g)<br>5.1<br>34.9</p>
-<p>湖南中南科伦药业有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g<em>12粒</em>盒<br>8.1<br>28.6</p>
-<p>湖南中南科伦药业有限<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>(0.25g)<br>5.7<br>37.7</p>
-<p>湖南中南科伦药业有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g(0.125g/0.125g)*12<br>5.1<br>37.6</p>
-<p>广东奇灵制药有限公司<br>氟氯西林钠阿莫西林胶囊<br>胶囊剂<br>0.25g(按氟氯西林0.125g阿莫西林0.125g)*12<br>5.4<br>43.2</p>
-</blockquote>
+            <p>36氪讯，阿里巴巴集团宣布，全资收购中国大陆唯一的自主嵌入式CPU IP Core公司——中天微系统有限公司。“收购中天微是阿里巴巴芯片布局的重要一环。”阿里巴巴CTO张建锋表示， IP Core是基础芯片能力的核心，进入IP Core领域是中国芯片实现“自主可控”的基础。</p>
 
         </div>
         <div class="post-tool">
@@ -199,10 +185,6 @@
         </div>
         
         <div class="post-tags">Tags：
-            
-            <a href="/tags/python/">python</a>
-            
-            <a href="/tags/爬虫/">爬虫</a>
             
         </div>
         
