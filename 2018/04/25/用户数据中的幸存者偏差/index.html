@@ -49,7 +49,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>标签 - 产品 - The Study Life</title>
+<title>用户数据中的幸存者偏差 - The Study Life</title>
 
 <meta name="keywords" content="">
 
@@ -98,21 +98,21 @@
 </div>
             <div class="page-title">
     <ul>
-        <li class="">
-            <a href="/" data-name="最近文章">最近</a>
-        </li>
+        <li><a href="/">最新</a></li>
         
-        <li class="">
-            <a href="/categories/Study" data-name="学习">学习</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/NLP" data-name="NLP">NLP</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/Job" data-name="职场">职场</a>
-        </li>
+            
+                <li class="">
+                    <a href="/categories/Study" data-name="学习">学习</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/NLP" data-name="NLP">NLP</a>
+                </li>
+            
+                <li class="">
+                    <a href="/categories/Job" data-name="职场">职场</a>
+                </li>
+            
         
         <li class="page-search">
     <form id="search" class="search-form">
@@ -153,69 +153,69 @@
     </ul>
 </div>
 <div class="main-inner">
-    
-    
-    
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong>李建飞</strong>
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="post-header">
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="" target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">作者</span>
+                    <a href="" target="_blank">李建飞</a>
+                    <span title="最后编辑于2018-04-25">2018-04-25</span>
+                </p>
+                <p>一个爱好学习的独行客</p>
+            </div>
+            <h2 class="post-title">用户数据中的幸存者偏差</h2>
+            <div class="post-meta">
+                本文总共1168个字 | 您是第<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>位看到它们的小伙伴
+            </div>
+        </div>
+        <div class="post-content markdown-body">
+            <blockquote>
+<p>幸存者偏差（Survivorship bias）是一种常见的逻辑谬误，意思是没有考虑到筛选的过程，忽略了被筛选掉的关键信息，只看到经过筛选后而产生的结果。</p>
+</blockquote>
+<p>先讲个故事。</p>
+<blockquote>
+<p>二战时，无奈德国空防强大，盟军战机损毁严重。于是军方便找来科学家统计飞机受损情况，以便进行改进。<br>军方一开始是要求在弹孔密集处加强装甲，想想没毛病啊，中弹多的地方理应加强防护。<br>可是这时候一个统计学家站出来 —— 实名反对以上答案！</p>
+</blockquote>
+<blockquote>
+<p>应该在中弹少的部位加装装甲！</p>
+</blockquote>
+<blockquote>
+<p>因为没被击中要害部位的飞机才能返航，进入统计样本中弹多的部位依然返航了，说明这些地方并不是致命伤而弹孔少的部位中弹的飞机，都因为被击落而飞不回来</p>
+</blockquote>
+<p>故事有美化，但论文还是真实存在的：<br><strong>A Method of Estimating Plane Vulnerability Based on Damage of Survivors</strong><br><strong>一种根据幸存飞机损伤情况推测飞机要害部位的方法。</strong><br>这位统计学家叫<strong> Abraham Wald。</strong></p>
+<p>幸存者偏差的本质就是<strong>选择偏倚</strong>。<br>类比到互联网行业中，目标市场的每一个潜在用户都是一架飞机。<br>然后，每一个节点，包括但不仅限于一条糟糕的广告、一次不畅的沟通、一场流于形式的会议，都会是一枚枚子弹。<br>而穿越了层层阻碍成功注册使用你的产品的用户，就是安全飞回来的飞机。<br>那么，<strong>你收集到的反馈来自哪里？</strong><br>答案已经不言自明。</p>
+<ul>
+<li>你最容易得到反馈的人，恰恰是经常使用产品的人。</li>
+<li>你最能知晓的产品问题，都是那些打在非致命伤上的弹孔而已。<br>当然，对于一个成熟的产品，用户量足够（飞回来的飞机够多）可以不用过于担心流失的用户，直接定义为非用户群即可。<br>但是对于一个新生的产品，这就是个大问题了。我应该在哪里加强我的装甲，我如何把有限的资源进行更优配置？<br><strong>幸存者偏差直接影响的就是新产品的功能迭代。</strong><br>功能迭代一般都从最容易收集到反馈的用户那里获得。<br>通过询问 the current top users 最希望在产品中看到哪些改进，从而构建新功能。<br>但是，这可能完全忽略了目标市场中那部分没有给你任何数据的人对你的产品不感兴趣的原因。<br>就像被击落的飞机无法告诉你它是怎么死的。</li>
+</ul>
+<h2 id="如何应对？"><a href="#如何应对？" class="headerlink" title="如何应对？"></a>如何应对？</h2><p>计算出目标市场中哪些部分没有反馈。比如说通过查看当前用户在目标市场所处的位置，以及我们如何获得这部分用户来反向推导<br>想办法收集并联系我们曾经触及过但并未成功转换的用户（比如说访问过网站但并没有试用产品的人群）<br>针对上图中的每个步骤制定相应措施，根据这些对产品不感兴趣的人群重新制定营销策略或者产品改进</p>
+<p><strong>让每一架飞机都尽可能飞回来。</strong></p>
+<p>作者：Aceyclee<br>链接：<a href="https://juejin.im/post/5ad8048e6fb9a045f9116349" target="_blank" rel="noopener">https://juejin.im/post/5ad8048e6fb9a045f9116349</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> 打赏
             </a>
-            <em>·</em>2018-04-25
         </div>
-        <a class="post-title" href="/2018/04/25/用户数据中的幸存者偏差/" target="_blank" title="用户数据中的幸存者偏差">用户数据中的幸存者偏差</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
+        
+        <div class="post-tags">Tags：
             
-                <em>·</em>
-                <a href="http://gldlife.github.io/tags/产品/" target="_blank">产品</a>
+            <a href="/tags/产品/">产品</a>
             
-                <em>·</em>
-                <a href="http://gldlife.github.io/tags/行为数据/" target="_blank">行为数据</a>
+            <a href="/tags/行为数据/">行为数据</a>
             
         </div>
-    </div>
-    <div class="post-desc">
-        用户数据中的幸存者偏差
-    </div>
-</article>
-
-
-
+        
+    </article>
     
+    <p>本文代表个人观点，内容仅供参考。若有不恰当之处，望不吝赐教！</p>
     
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="" target="_blank">
-                <strong>李建飞</strong>
-            </a>
-            <em>·</em>2018-04-23
-        </div>
-        <a class="post-title" href="/2018/04/23/如何才算得上一款好产品？/" target="_blank" title="如何才算得上一款好产品？">如何才算得上一款好产品？</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-                <em>·</em>
-                <a href="http://gldlife.github.io/tags/产品/" target="_blank">产品</a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        如何才算得上一款好产品？
-    </div>
-</article>
-
-
-
     
 </div>
-<!-- 分页开始 -->
-
-
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
